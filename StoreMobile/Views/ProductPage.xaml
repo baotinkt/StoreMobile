@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+			 x:Class="StoreMobile.ProductPage" 
+			 Title="Todo">
+	<ContentPage.Content>
+    <ScrollView  Orientation = "Vertical">
+      <StackLayout>
+        <Label Text="Contract" />
+        <Entry x:Name="barcode" Text="{Binding Path=Barcode}" />
+        <Label Text="Product" />
+        <Entry x:Name="product" Text="{Binding Path=Product}" />
+        <Label Text="Unit Code" />
+        <Entry x:Name="unitCode" Text="{Binding Path=UnitCode}" />
+        <Label Text="Remain" />
+        <Entry x:Name="remain" Text="{Binding Path=Remain}" Keyboard="Numeric" />
+        <Label Text="Price" />
+        <Entry x:Name="price" Text="{Binding Path=Price}" Keyboard="Numeric" />
+        <Label Text="Whole Sale Price" />
+        <Entry x:Name="wholeSalePrice" Text="{Binding Path=WholeSalePrice}" Keyboard="Numeric" />
+        <Label Text="Updated Date" />
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.5*" />
+          </Grid.ColumnDefinitions>
+          <DatePicker x:Name="updatedDate1" Date="{Binding Path=UpdatedDate}" DateSelected="OnDateChanged" Grid.Row="0" Grid.Column="0">
+            <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+          </DatePicker >
+          <TimePicker x:Name="updatedDate2" Time="{Binding Path=UpdatedDate}" PropertyChanged="OnTimeChanged" Grid.Row="0" Grid.Column="1">
+            <TimePicker.Format>hh:mm tt</TimePicker.Format>
+          </TimePicker>
+        </Grid>
+        <Entry x:Name="updatedDate" Text="{Binding Path=UpdatedDate}" />
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="Is Best Sale" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+          <Switch x:Name="IsBestSale" IsToggled="{Binding Path=IsBestSale}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+          <Label Text="Is New" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+          <Switch x:Name="IsNew" IsToggled="{Binding Path=IsNew}" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" />
+        </Grid>
+        <Image HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Source="{Binding ImageUrl}" />
+        <Button Text="Picture" Clicked="OnPicture" />
+        <Button Text="Get" Clicked="OnGetActivated" />
+        <Button Text="Save" Clicked="OnSaveActivated" />
+        <Button Text="Delete" Clicked="OnDeleteActivated" />
+        <Button Text="Cancel" Clicked="OnCancelActivated" />
+        <Button Text="Speak" Clicked="OnSpeakActivated" />
+      </StackLayout>
+    </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

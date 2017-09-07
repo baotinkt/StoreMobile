@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="TodoREST.TodoListPage" Title="Todo">
+  <ContentPage.Title></ContentPage.Title>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="+" Clicked="OnAddItemClicked">
+			<ToolbarItem.Icon>
+				<OnPlatform x:TypeArguments="FileImageSource" Android="plus.png" WinPhone="plus.png" />
+			</ToolbarItem.Icon>
+		</ToolbarItem>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+    <StackLayout Padding="20,0,0,0">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.2*" />
+         </Grid.ColumnDefinitions>
+        <Label Text="Picture" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" />
+        <Label Text="Product" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="1" />
+        <Label Text="Price" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="2" />
+      </Grid>
+    <ListView x:Name="listView" ItemSelected="OnItemSelected">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.5*" />
+                  <ColumnDefinition Width="0.2*" />
+                </Grid.ColumnDefinitions>
+                <controls:CircleImage Source="{Binding ImageUrl}" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding Product}" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="1" />
+                <Label Text="{Binding Price}" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="2" />
+              </Grid>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

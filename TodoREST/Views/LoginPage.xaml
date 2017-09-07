@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+			 x:Class="StoreMobile.Views.LoginPage" Title="Login"
+             xmlns:i18n="clr-namespace:StoreMobile;assembly=StoreMobile">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{i18n:Translate Username}" />
+            <Entry x:Name="txtUsername"/>
+            <Label Text="{i18n:Translate Password}" />
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="true"/>
+            <Button Text="Sign In" Clicked="OnSignInActivated" />
+            <Label x:Name="lblMsg" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

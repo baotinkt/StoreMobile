@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreMobile.Views.ScanBarcodePage">
+  <ContentPage.Content>
+    <StackLayout Padding="20,0,0,0">
+      <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+      <Label Text="Barcode:" />
+      <Entry x:Name="txtBarcode" />
+      <Button Text="Scan" Clicked="OnScan" />
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
